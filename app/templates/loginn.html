@@ -30,10 +30,13 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action='/login' method="post">
-					<span class="login100-form-title p-b-26">
+				<form class="login100-form validate-form" action='/login' method="POST">
+					<span class="login100-form-logo">
+						<img src="{{ url_for('static', filename='login/images/small_logo_white.png') }}" style="width: 150px; height: 150px;">
+					<!-- <span class="login100-form-title p-b-26">
 						< Inserir Texto >
-					</span>
+					</span> -->
+
 
 					<div class="wrap-input100 validate-input" data-validate = "Inserir E-mail válido">
 						<input class="input100" type="text" name="email">
@@ -41,10 +44,10 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Inserir Senha">
-						<span class="btn-show-pass">
+						<span class="btn-show-pass">				
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="senha">
 						<span class="focus-input100" data-placeholder="Senha"></span>
 					</div>
 
@@ -56,7 +59,9 @@
 							</button>
 						</div>
 					</div>
-					<div id="error_message" style="text-align: center; color: red;"i></div>
+					{% if error %}
+					<div id="error_message" style="text-align: center; color: red;"i>{{ error }}</div>
+					{% endif %}
 				</form>
 			</div>
 		</div>
